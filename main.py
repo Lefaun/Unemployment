@@ -25,7 +25,7 @@ st.write(
 
 with st.sidebar:
     with st.sidebar:
-        st.title(" Dados Relacionados com o Desemprego, How Ai can implemento normative help and decrease categorical values on unemployment in Portugal")
+        st.title(" Dados Relacionados com o Desemprego, How Ai can implement normative help and decrease categorical values on unemployment in Portugal")
         st.title("Pode Adicionar outro daTa Set em CSV")
         st.write("Apenas Necessita de Adicionar um novo CSV")
         Button = st.button("Adicionar outro CSV")  
@@ -41,7 +41,7 @@ def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha o periodo de desemprego em trimestre ", options=df.columns)
     st.write('Voçê selecionou as seguintes opções', options)
     #adicionei aqui uma cena nova
-    df = pd.read_csv('Taxa de Desemprego 3.csv')
+    df = pd.read_csv('Mentalhealth3.csv')
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
