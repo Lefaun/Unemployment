@@ -160,13 +160,13 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
     st.title("Pode Adicionar outro daTa Set em CSV")
     st.write("Apenas Necessita de Adicionar um novo CSV")
     Button = st.button("Adicionar outro CSV")  
-        if Button == True:
-            File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
-            try:
-                if File is not None:
-                    df = pd.read_csv(File, low_memory=False)
-            except valueError:
-                print("Não Foi Adicionado CSV")
+    if Button == True:
+        File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
+        try:
+            if File is not None:
+                df = pd.read_csv(File, low_memory=False)
+        except valueError:
+            print("Não Foi Adicionado CSV")
 
 def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
