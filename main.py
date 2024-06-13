@@ -360,25 +360,25 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         st.write(" O resultado dos  dos Valores Máximos", df.max())
-    with col2:
+    #with col2:
         
-        df = pd.read_csv('Taxa de Desemprego 3.csv')
-        Indx =  df.get('Indice de Desemprego')
-        arr1 = df.get('PT: Portugal')
-        arr2 = df.get('Continente')
-        arr3 = df.get('Região Autónoma dos Açores')
-        arr4 =df.get('Região Autónoma da Madeira')
+       # df = pd.read_csv('Taxa de Desemprego 3.csv')
+        #Indx =  df.get('Indice de Desemprego')
+        #arr1 = df.get('PT: Portugal')
+        #arr2 = df.get('Continente')
+        #arr3 = df.get('Região Autónoma dos Açores')
+        #arr4 =df.get('Região Autónoma da Madeira')
         
     
-        marks_list = df['Indice de Desemprego'].tolist()
+        #marks_list = df['Indice de Desemprego'].tolist()
     
-        marks_list2 = df['PT: Portugal'].tolist()
+        #marks_list2 = df['PT: Portugal'].tolist()
     
-        marks_list5 = df['Continente'].tolist()
-        marks_list3 = df['Região Autónoma dos Açores'].tolist()
+        #marks_list5 = df['Continente'].tolist()
+        #marks_list3 = df['Região Autónoma dos Açores'].tolist()
     
     
-        marks_list4 = df['Região Autónoma da Madeira'].tolist()
+        #marks_list4 = df['Região Autónoma da Madeira'].tolist()
     
         #dict = {'1.º Trimestre de 2024' : marks_list2,	4.º Trimestre de 2023	3.º Trimestre de 2023	2.º Trimestre de 2023	1.º Trimestre de 2023	4.º Trimestre de 2022	3.º Trimestre de 2022	2.º Trimestre de 2022': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
         
