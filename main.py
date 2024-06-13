@@ -409,6 +409,15 @@ with tab5:
 
 ######FIM DAS TABS
 
+openprocessing_iframe = """
+    <div class="background">
+        <iframe src="<iframe title="Taxa de Desemprego" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOWM1YThjZWItMGMyNy00NTZkLWE0NWQtYzY5ZWU3OWVkZWQ3IiwidCI6IjYyMzBlODYwLWJmYzUtNDA5NS1hNmJjLTEwNDcyMWFkZDZlNiIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+"""
+
+# Inject the CSS and HTML into the Streamlit app
+
+st.markdown(openprocessing_iframe, unsafe_allow_html=True)
 
 st.write("Trabalho de Pesquisa e Programação: Paulo Ricardo Monteiro")
 st.write("Formação em Fundamentos de Python Avançado por José Luis Boura - 2023/2024")
