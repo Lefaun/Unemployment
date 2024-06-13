@@ -41,7 +41,7 @@ def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
     st.write('Voçê selecionou as seguintes opções', options)
     #adicionei aqui uma cena nova
-    df = pd.read_csv('Mentalhealth3.csv.csv')
+    df = pd.read_csv('Mentalhealth3.csv')
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -215,7 +215,7 @@ st.write("____________________________________________________________")
 
 
 df = pd.read_csv(
-    "Mentalhealth3.csv.csv"
+    "Mentalhealth3.csv"
 )
 #######inicio dAS TABS
 tab1, tab2, tab3, tab4 , tab5 = st.tabs(["The DataFrame","The Maximum Values", "The Minumum Values", "The Average Values", "Standard Deviation"])
@@ -231,7 +231,7 @@ with tab2:
         st.write(" O resultado dos  dos Valores Máximos", df.max())
     with col2:
         
-        df = pd.read_csv('Mentalhealth3.csv.csv')
+        df = pd.read_csv('Mentalhealth3.csv')
         Indx =  df.get('Date1')
         arr1  = df.get('Homens')
         arr2  = df.get('Mulheres')
