@@ -15,158 +15,39 @@ from sklearn import preprocessing, svm
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-st.title("Estatísticas dos dAdos de desemprego em Portugal ")
+st.title("Estatísticas da Saúde Mental no Período de 2004 a 2020 ")
 
 st.write(
-    """Estudo Efetuado pelo INE - Instiituto Nacional de Estatística sobre o estado do  dados relacionados com o Desemprego em Portugal
+    """Estudo Efetuado pelo INE - Instiituto Nacional de Estatística sobre o estado da Saúde Mental dos Portugueses 
+    divídidos por Género, Faixa Étaria e Ocupação Profissional
     """
 )
 
 
 with st.sidebar:
     with st.sidebar:
-        st.title(" Dados Relacionados com o Desemprego, How Ai can implement normative help and decrease categorical values on unemployment in Portugal")
+        st.title(" WHY AI FOR HEALTH CARE?")
+        st.write(""" 1. Organize and analyze data: A virtual assistant can help organize and analyze large amounts of data related to mental health, such as patient demographics, treatment outcomes, and resource utilization. 2. This can provide valuable insights for healthcare providers and policymakers to improve mental health services.
+
+3. Identify patterns and trends: By using data analysis tools, a virtual assistant can identify patterns and trends in mental health data. 4. This can help identify high-risk populations, common mental health conditions, and areas where resources are lacking.
+
+5. Predictive modeling: With the help of machine learning algorithms, a virtual assistant can create predictive models to forecast future mental health needs and resource requirements. This can assist in planning and allocating resources effectively.
+
+6. Improve patient care: By analyzing patient data, a virtual assistant can identify gaps in care and suggest interventions to improve patient outcomes. This can include personalized treatment plans, medication adherence reminders, and follow-up care recommendations.
+
+7.Monitor mental health trends: A virtual assistant can continuously monitor mental health data and alert healthcare providers to any significant changes or emerging trends. This can help in early detection and prevention of mental health issues.
+
+8. Provide resources and support: A virtual assistant can act as a virtual resource center, providing information and support to individuals seeking mental health resources. """)
         st.title("Pode Adicionar outro daTa Set em CSV")
         st.write("Apenas Necessita de Adicionar um novo CSV")
         Button = st.button("Adicionar outro CSV")  
         if Button == True:
-            File = st.file_uploader("Adcione aqui dados sobre Desemprego", type={"csv"})
+            File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
             try:
                 if File is not None:
                     df = pd.read_csv(File, low_memory=False)
             except valueError:
                 print("Não Foi Adicionado CSV")
-
-def filter_data(df: pd.DataFrame) ->pd.DataFrame:
-    options = st.multiselect("escolha o periodo de desemprego em trimestre ", options=df.columns)
-    st.write('Voçê selecionou as seguintes opções', options)
-    #adicionei aqui uma cena nova
-    df = pd.read_csv('Mentalhealth3.csv')
-def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Adds a UI on top of a dataframe to let viewers filter columns
-    Args:
-        df (pd.DataFrame): Original dataframe
-    Returns:
-        pd.DataFrame: Filtered dataframe
-    """
-    modify = st.multiselect(
-    'Fatores de Risco👇',
-    ['Doença', 'Saude Mental', 'Estrangeiro', 'Baixa Escolaridade',
-    'Carencia Economica', 'Situação de Sem Abrigo'])
-
-       # "Escolha os Fatores 👇", df.columns,
-        #label_visibility=st.session_state.visibility,
-        #disabled=st.session_state.disabled,
-        #placeholder=st.session_state.placeholder,
-    if not modify:
-        return df
-
-    df = df.copy()
-
-    # Try to convert datetimes into a standard format (datetime, no timezone)
-    for col in df.columns:
-        if is_object_dtype(df[col]):
-            try:
-                df[col] = pd.to_datetime(df[col])
-            except Exception:
-                pass
-
-        if is_datetime64_any_dtype(df[col]):
-            df[col] = df[col].dt.tz_localize(None)
-
-    modification_container = st.container()
-
-    with modification_container:
-        to_filter_columns = st.multiselect("Filter dataframe on", df.columns)
-        for column in to_filter_columns:
-            left, right = st.columns((1, 20))
-            left.write("↳")
-            # Treat columns with < 10 unique values as categorical
-            if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
-                user_cat_input = right.multiselect(
-                    f"Values for {column}",
-                    df[column].unique(),
-                    default=list(df[column].unique()),
-                )
-                df = df[df[column].isin(user_cat_input)]
-            elif is_numeric_dtype(df[column]):
-                _min = float(df[column].min())
-                _max = float(df[column].max())
-                step = (_max - _min) / 100
-                user_num_input = right.slider(
-                    f"Values for {column}",
-                    _min,
-                    _max,
-                    (_min, _max),
-                    step=step,
-                )
-                df = df[df[column].between(*user_num_input)]
-            elif is_datetime64_any_dtype(df[column]):
-                user_date_input = right.date_input(
-                    f"Values for {column}",
-                    value=(
-                        df[column].min(),
-                        df[column].max(),
-                    ),
-                )
-                if len(user_date_input) == 2:
-                    user_date_input = tuple(map(pd.to_datetime, user_date_input))
-                    start_date, end_date = user_date_input
-                    df = df.loc[df[column].between(start_date, end_date)]
-            else:
-                user_text_input = right.text_input(
-                    f"Substring or regex in {column}",
-                )
-                if user_text_input:
-                    df = df[df[column].str.contains(user_text_input)]
-
-    return df
-
-def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Adds a UI on top of a dataframe to let viewers filter columns
-    Args:
-        df (pd.DataFrame): Original dataframe
-    Returns:
-        pd.DataFrame: Filtered dataframe
-    """
-    modify2 = st.multiselect(
-       'Fatores de Risco👇',
-    ['Doença', 'Saude Mental', 'Estrangeiro', 'Baixa Escolaridade',
-    'Carencia Economica', 'Situação de Sem Abrigo'])
-        #label_visibility=st.session_state.visibility,
-        #disabled=st.session_state.disabled,
-        #placeholder=st.session_state.placeholder,
-    
-
-    if not modify2:
-        return df
-
-    df = df.copy()
-
-    # Try to convert datetimes into a standard format (datetime, no timezone)
-    for col in df.columns:
-        if is_object_dtype(df[col]):
-            try:
-                df[col] = pd.to_datetime(df[col])
-            except Exception:
-                pass
-
-        if is_datetime64_any_dtype(df[col]):
-            df[col] = df[col].dt.tz_localize(None)
-
-    modification_container = st.containe 
-    #st.title("Pode Adicionar outro daTa Set em CSV")
-    #st.write("Apenas Necessita de Adicionar um novo CSV")
-    #Button = st.button("Adicionar outro CSV")  
-    #if Button == True:
-        #File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
-        #try:
-            #if File is not None:
-                #df = pd.read_csv(File, low_memory=False)
-        #except valueError:
-            #print("Não Foi Adicionado CSV")
 
 def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
@@ -335,6 +216,7 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
     
+ 
     
 
 #End
