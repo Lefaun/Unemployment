@@ -25,7 +25,7 @@ st.write(
 
 with st.sidebar:
     with st.sidebar:
-        st.title(" Dados Relacionados com o Desemprego, How Ai can implemento normative help and decrease categorical values on unemployment in Portugal"")
+        st.title(" Dados Relacionados com o Desemprego, How Ai can implemento normative help and decrease categorical values on unemployment in Portugal")
         st.title("Pode Adicionar outro daTa Set em CSV")
         st.write("Apenas Necessita de Adicionar um novo CSV")
         Button = st.button("Adicionar outro CSV")  
