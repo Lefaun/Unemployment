@@ -172,7 +172,7 @@ def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
     st.write('Voçê selecionou as seguintes opções', options)
     #adicionei aqui uma cena nova
-    df = pd.read_csv('Taxa de Desemprego 3.csv')
+    df = pd.read_csv('Mentalhealth3.csv')
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -362,28 +362,29 @@ with tab2:
         st.write(" O resultado dos  dos Valores Máximos", df.max())
     with col2:
         
-        df = pd.read_csv('Mentalhealth3.csv')
-        Indx =  df.get('Date1')
-        arr1  = df.get('Homens')
-        arr2  = df.get('Mulheres')
-        arr3  = df.get('Desempregados')
-        arr4 =df.get('Ensino superior')
-    
-        marks_list = df['Date1'].tolist()
-    
-        marks_list2 = df['Desempregados'].tolist()
-    
-        marks_list5 = df['Homens'].tolist()
-        marks_list3 = df['Mulheres'].tolist()
-    
-    
-        marks_list4 = df['Ensino superior'].tolist()
-    
-        dict = {'Desempregados': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
+        df = pd.read_csv('Taxa de Desemprego 3.csv')
+        Indx =  df.get('Indice de Desemprego')
+        arr1 = df.get('PT: Portugal')
+        arr2 = df.get('Continente')
+        arr3 = df.get('Região Autónoma dos Açores')
+        arr4 =df.get('Região Autónoma da Madeira')
         
-        df1 = pd.DataFrame(dict)
+    
+        marks_list = df['Indice de Desemprego'].tolist()
+    
+        marks_list2 = df['PT: Portugal'].tolist()
+    
+        marks_list5 = df['Continente'].tolist()
+        marks_list3 = df['Região Autónoma dos Açores'].tolist()
+    
+    
+        marks_list4 = df['Região Autónoma da Madeira'].tolist()
+    
+        #dict = {'1.º Trimestre de 2024' : marks_list2,	4.º Trimestre de 2023	3.º Trimestre de 2023	2.º Trimestre de 2023	1.º Trimestre de 2023	4.º Trimestre de 2022	3.º Trimestre de 2022	2.º Trimestre de 2022': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
+        
+        #df1 = pd.DataFrame(dict)
         st.write(max(df))
-        chart_data = pd.DataFrame(df, columns=["Desempregados", "Mulheres", "Ensino superior", "Homens"])
+        chart_data = pd.DataFrame(df, columns=["Indice de Desemprego", "PT: Portugal", "Ensino superior", "Homens"])
     
         st.line_chart(chart_data)
 with tab3:
