@@ -30,7 +30,7 @@ with st.sidebar:
         st.write("Apenas Necessita de Adicionar um novo CSV")
         Button = st.button("Adicionar outro CSV")  
         if Button == True:
-            File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
+            File = st.file_uploader("Adcione aqui dados sobre Desemprego", type={"csv"})
             try:
                 if File is not None:
                     df = pd.read_csv(File, low_memory=False)
@@ -157,16 +157,16 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
             df[col] = df[col].dt.tz_localize(None)
 
     modification_container = st.containe 
-    st.title("Pode Adicionar outro daTa Set em CSV")
-    st.write("Apenas Necessita de Adicionar um novo CSV")
-    Button = st.button("Adicionar outro CSV")  
-    if Button == True:
-        File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
-        try:
-            if File is not None:
-                df = pd.read_csv(File, low_memory=False)
-        except valueError:
-            print("Não Foi Adicionado CSV")
+    #st.title("Pode Adicionar outro daTa Set em CSV")
+    #st.write("Apenas Necessita de Adicionar um novo CSV")
+    #Button = st.button("Adicionar outro CSV")  
+    #if Button == True:
+        #File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
+        #try:
+            #if File is not None:
+                #df = pd.read_csv(File, low_memory=False)
+        #except valueError:
+            #print("Não Foi Adicionado CSV")
 
 def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
