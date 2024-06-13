@@ -156,7 +156,8 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
         if is_datetime64_any_dtype(df[col]):
             df[col] = df[col].dt.tz_localize(None)
 
-    modification_container = st.containe st.title("Pode Adicionar outro daTa Set em CSV")
+    modification_container = st.containe 
+    st.title("Pode Adicionar outro daTa Set em CSV")
         st.write("Apenas Necessita de Adicionar um novo CSV")
         Button = st.button("Adicionar outro CSV")  
         if Button == True:
