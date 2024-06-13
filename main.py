@@ -158,8 +158,8 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
 
     modification_container = st.containe 
     st.title("Pode Adicionar outro daTa Set em CSV")
-        st.write("Apenas Necessita de Adicionar um novo CSV")
-        Button = st.button("Adicionar outro CSV")  
+    st.write("Apenas Necessita de Adicionar um novo CSV")
+    Button = st.button("Adicionar outro CSV")  
         if Button == True:
             File = st.file_uploader("Adcione aqui dados sobre saúde", type={"csv"})
             try:
