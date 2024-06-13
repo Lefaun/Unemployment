@@ -15,7 +15,7 @@ from sklearn import preprocessing, svm
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-st.title("Estatísticas da Saúde Mental no Período de 2004 a 2020 ")
+st.title("Estatísticas dos dAdos de desemprego em Portugal ")
 
 st.write(
     """Estudo Efetuado pelo INE - Instiituto Nacional de Estatística sobre o estado do  dados relacionados com o Desemprego em Portugal
@@ -221,7 +221,7 @@ df = pd.read_csv(
 tab1, tab2, tab3, tab4 , tab5 = st.tabs(["The DataFrame","The Maximum Values", "The Minumum Values", "The Average Values", "Standard Deviation"])
 with tab1:
     
-    st.title("Data Science for Health") 
+    st.title("Data Science for Unemployment") 
     
 with tab2:
     st.header("The Maximum Values")
