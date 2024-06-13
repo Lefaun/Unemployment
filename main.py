@@ -53,7 +53,7 @@ def filter_data(df: pd.DataFrame) ->pd.DataFrame:
     options = st.multiselect("escolha a Cena ", options=df.columns)
     st.write('Voçê selecionou as seguintes opções', options)
     #adicionei aqui uma cena nova
-    df = pd.read_csv('Mentalhealth3.csv')
+    df = pd.read_csv('Taxa de Desemprego 3.csv')
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -216,7 +216,6 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
     
- 
     
 
 #End
@@ -227,48 +226,48 @@ def filter_dataframe2(df: pd.DataFrame) -> pd.DataFrame:
 st.write("____________________________________________________________") 
 
 
-df = pd.read_csv(
-    "Taxa de Desemprego 3.csv"
-)
+#df = pd.read_csv(
+    #"Mentalhealth3.csv"
+#)
 #######inicio dAS TABS
 tab1, tab2, tab3, tab4 , tab5 = st.tabs(["The DataFrame","The Maximum Values", "The Minumum Values", "The Average Values", "Standard Deviation"])
 with tab1:
     
-    st.title("Data Science for Unemployment") 
+    st.title("Data Science for Health") 
     
 with tab2:
     st.header("The Maximum Values")
     
     col1, col2 = st.columns(2)
     with col1:
-        st.write(" O resultado dos  dos Valores Máximos", df.max())
-    #with col2:
+        st.write("")
+        #st.write(" O resultado dos  dos Valores Máximos", df.max())
+    with col2:
         
-       # df = pd.read_csv('Taxa de Desemprego 3.csv')
-        #Indx =  df.get('Indice de Desemprego')
-        #arr1 = df.get('PT: Portugal')
-        #arr2 = df.get('Continente')
-        #arr3 = df.get('Região Autónoma dos Açores')
-        #arr4 =df.get('Região Autónoma da Madeira')
-        
+        df = pd.read_csv('Taxa de Desemprego 3.csv')
+        #Indx =  df.get('Date1')
+        #arr1  = df.get('Homens')
+        #arr2  = df.get('Mulheres')
+        #arr3  = df.get('Desempregados')
+        #arr4 =df.get('Ensino superior')
     
-        #marks_list = df['Indice de Desemprego'].tolist()
+        #marks_list = df['Date1'].tolist()
     
-        #marks_list2 = df['PT: Portugal'].tolist()
+        #marks_list2 = df['Desempregados'].tolist()
     
-        #marks_list5 = df['Continente'].tolist()
-        #marks_list3 = df['Região Autónoma dos Açores'].tolist()
+        #marks_list5 = df['Homens'].tolist()
+        #marks_list3 = df['Mulheres'].tolist()
     
     
-        #marks_list4 = df['Região Autónoma da Madeira'].tolist()
+        #marks_list4 = df['Ensino superior'].tolist()
     
-        #dict = {'1.º Trimestre de 2024' : marks_list2,	4.º Trimestre de 2023	3.º Trimestre de 2023	2.º Trimestre de 2023	1.º Trimestre de 2023	4.º Trimestre de 2022	3.º Trimestre de 2022	2.º Trimestre de 2022': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
+        #dict = {'Desempregados': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
         
         #df1 = pd.DataFrame(dict)
-        st.write(max(df))
-        chart_data = pd.DataFrame(df, columns=["Indice de Desemprego", "PT: Portugal", "Ensino superior", "Homens"])
+        ##st.write(max(df))
+        #chart_data = pd.DataFrame(df, columns=["Desempregados", "Mulheres", "Ensino superior", "Homens"])
     
-        st.line_chart(chart_data)
+        #st.line_chart(chart_data)
 with tab3:
     st.header("The Minumum Values")
     st.write(" O resultado dos  dos Valores minimos", df.min())
@@ -291,16 +290,140 @@ with tab5:
 
 ######FIM DAS TABS
 
-openprocessing_iframe = """
-    <div class="iframe">
-        <iframe title="Taxa de Desemprego" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOWM1YThjZWItMGMyNy00NTZkLWE0NWQtYzY5ZWU3OWVkZWQ3IiwidCI6IjYyMzBlODYwLWJmYzUtNDA5NS1hNmJjLTEwNDcyMWFkZDZlNiIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
-    </div>
-"""
 
-# Inject the CSS and HTML into the Streamlit app
 
-st.markdown(openprocessing_iframe, unsafe_allow_html=True)
+st.dataframe(filter_dataframe2(df))
+chart_data = pd.DataFrame(
+np.random.randn( 22 , 5),
+columns=['Mulheres', 'Homens', 'Ensino Superior', 'Desempregados', 'Reformados' ])
 
+
+#column2=['25','50','75', '80', '100']
+st.area_chart(chart_data)
+
+#st.dataframe(filter_dataframe2(df))
+    
+
+st.write("____________________________________________________________")  
+st.header("Valores Na relação Desempregados / Ensino Superior ")
+# Example dataframe
+df3 = pd.read_csv('Mentalhealth3.csv')
+
+df_binary = df[['Desempregados', 'Ensino superior']]
+ 
+# Taking only the selected two attributes from the dataset
+df_binary.columns = ['Desempregados', 'Ensino superior']
+#display the first 5 rows
+df_binary.head()
+
+marks_list = df3['Date1'].tolist()
+
+marks_list2 = df3['Desempregados'].tolist()
+
+marks_list5 = df3['Homens'].tolist()
+marks_list3 = df3['Mulheres'].tolist()
+
+
+marks_list4 = df3['Ensino superior'].tolist()
+
+dict = {'Desempregados': marks_list2,  'Ensino superior': marks_list4,} 
+    
+df3 = pd.DataFrame(dict)
+    
+print(df3)
+
+chart_data = pd.DataFrame(df, columns=["Desempregados",  "Ensino superior", ])
+
+st.line_chart(chart_data)
+
+
+
+
+#st.area_chart(data = df.mean())
+st.write("____________________________________________________________") 
+st.header("Relação com a Situação de Emprego")
+#st.header("Evolução dos Valores Máximos")
+#data = pd.DataFrame(np.random.randn(5, 3), columns=["2004", "2010", "2020"])
+
+#st.line_chart(data= df.max())
+df4 = pd.read_csv('Mentalhealth3.csv')
+Indx =  df4.get('Date1')
+arr1  = df4.get('Homens')
+arr2  = df4.get('Mulheres')
+arr3  = df4.get('Desempregados')
+arr4 =df4.get('Ensino superior')
+
+marks_list = df4['Date1'].tolist()
+
+marks_list2 = df4['Desempregados'].tolist()
+
+marks_list5 = df4['Homens'].tolist()
+marks_list3 = df4['Mulheres'].tolist()
+
+
+marks_list4 = df4['Ensino superior'].tolist()
+
+dict = {'Desempregados': marks_list2, 'Mulheres': marks_list3, 'Ensino superior': marks_list4, 'Homens' : marks_list5} 
+    
+df4 = pd.DataFrame(dict)
+    
+print(df4)
+
+chart_data = pd.DataFrame(df, columns=["Desempregados", "Mulheres", "Ensino superior", "Homens"])
+
+st.line_chart(chart_data)
+
+# Adding legend for stack plots is tricky.
+#plt.plot(marks_list,marks_list2, color='b', label = 'Desempregados')
+#plt.plot(marks_list,marks_list3, color='r', label = 'Mulheres')
+#plt.plot(marks_list,marks_list4, color='y', label = 'Ensino superior')
+#plt.plot( color='g', label = 'Desempregados')
+
+
+#plt.stackplot( marks_list, marks_list2,  colors= ['r', 'g'])
+#plt.title('Relação entee Mulheres no Desemprego com o ensino Superio')
+#plt.legend()
+#plt.show()
+
+
+
+st.write("____________________________________________________________") 
+st.title("Evolução dos Profissionais com Ensino Superior")
+df5 = pd.read_csv('Mentalhealth3.csv')
+st.area_chart( df5, x="Date1", y='Ensino superior')
+
+df5 = pd.DataFrame(
+    {"Date1": [2008, 2011, 2018, 2020], "values": [0, 25, 50, 75], "values_2": [15, 25, 45, 85]}
+
+).set_index("Date1")
+
+df_new = pd.DataFrame(
+    {"steps": [2001, 2010, 2020], "Homens": [0.5, 0.3, 0.5], "Mulheres": [0.8, 0.5, 0.3]}
+).set_index("steps")
+
+df_all = pd.concat([df, df_new], axis=0)
+st.line_chart(chart_data, x=df.all,)
+st.write("_______________________________________________________")
+
+df6 = pd.read_csv("Mentalhealth3.csv")
+
+@st.experimental_memo
+
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
+
+
+csv = convert_df(df6)
+
+st.download_button(
+   "Pode Fazer o Download dos Dados",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
+
+st.write("_______________________________________________________")
 st.write("Trabalho de Pesquisa e Programação: Paulo Ricardo Monteiro")
 st.write("Formação em Fundamentos de Python Avançado por José Luis Boura - 2023/2024")
 #st.line_chart(df, x=df.index, y=["Homens", "Mulheres"])
