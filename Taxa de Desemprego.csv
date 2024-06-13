@@ -1,0 +1,54 @@
+
+Quadro extraído em 13 de Junho de 2024 (12:38:12)
+http://www.ine.pt
+
+
+
+Local de residência (NUTS - 2013) (1) ;Taxa de desemprego (Série 2021 - %) por Local de residência (NUTS - 2013) e Sexo -  Trimestral (4) ;;;
+;Período de referência dos dados (2) ;;;
+;1.º Trimestre de 2024;;;
+;Sexo (3) ;;;
+;HM;H;M;
+;% ;% ;% ;
+PT: Portugal;6,8;6,2;7,5;
+1: Continente;6,8;6,1;7,6;
+2: Região Autónoma dos Açores;7;6,6 §;7,3 §;
+3: Região Autónoma da Madeira;6,1;6 §;6,2 §;
+
+Taxa de desemprego (Série 2021 - %) por Local de residência (NUTS - 2013) e Sexo -  Trimestral - INE, Inquérito ao emprego (Séries - 2021)
+
+Nota(s):
+(1) A partir de 1 de janeiro de 2015 entrou em vigor uma nova versão das NUTS (NUTS 2013). Ao nível da NUTS II ocorreu apenas uma alteração de designação em "Lisboa" que passou a ser designada por "Área Metropolitana de Lisboa".
+
+(2) Valores obtidos a partir de ponderadores calibrados com base nas Estimativas Mensais de População Residente desde 2011, em função dos resultados definitivos dos Censos 2011 e calculadas especificamente para o Inquérito ao Emprego.
+
+(3) Todas as estimativas relativas à série de 2011 (em vigor do 1.º trimestre de 2011 ao 4.º trimestre de 2020) foram revistas no âmbito do exercício de reconciliação com a série de 2021, possibilitando assim a comparação das estimativas entre as duas séries.
+
+(4) As estimativas do 2.º trimestre de 2020 ao 2.º trimestre de 2023 foram revistas na sequência dos resultados da análise do impacto da suspensão do modo de recolha presencial (CAPI), que ocorreu devido às medidas de salvaguarda da saúde pública adotadas durante o período pandémico COVID-19. Para mais detalhes, sugere-se a consulta da nota explicativa constante no Destaque "Estatísticas do Emprego - 3.º trimestre de 2023", divulgado no Portal do INE.
+
+
+
+Última atualização destes dados: 08 de maio de 2024
+
+
+Metainformação associada ao quadro
+
+Taxa de desemprego (Série 2021 - %)
+Designação;Taxa de desemprego (Série 2021 - %) por Local de residência (NUTS - 2013) e Sexo -  Trimestral
+Periodicidade;Mensal
+Fonte;INE, Inquérito ao emprego (Séries - 2021)
+Primeiro período disponível;1.º Trimestre de 2011
+Último período disponível;1.º Trimestre de 2024
+Dimensões
+     Dimensão 1;Período de referência dos dados (Trimestre)
+     Dimensão 2;Local de residência (NUTS - 2013)
+     Dimensão 3;Sexo
+Conceitos
+     PERÍODO DE REFERÊNCIA;Período de tempo a que a informação se refere e que pode ser um dia específico ou um intervalo de tempo (mês, ano fiscal, ano civil, entre outros).
+     TAXA DE DESEMPREGO;Taxa que define a relação entre a população desempregada e a população ativa.
+     POPULAÇÃO ATIVA;População formada por todos os indivíduos ativos.
+Definição;
+Fórmula;&lt - p&gt - (Popula&ccedil - &atilde - o desempregada/ Popula&ccedil - &atilde - o ativa)*100&lt - /p&gt - 
+Unidade de Medida (símbolo);Percentagem (%)
+Potência de 10;0
+Data da última atualização;08-May-2024
